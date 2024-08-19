@@ -1,22 +1,21 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+ //   id("com.google.gms.google-services")
     alias(libs.plugins.google.service)
+
 }
 
 android {
-    namespace = libs.plugins.appNameSpace.get().toString()
+    namespace = libs.plugins.authNameSpace.get().toString()
     compileSdk = 34
 
     defaultConfig {
-        applicationId = libs.plugins.appNameSpace.get().toString()
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -35,13 +34,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
     buildFeatures {
-        compose = true
+        compose =  true
     }
 }
 
 dependencies {
 
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -58,21 +59,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-
-    // koin di
-    implementation(platform(libs.koin.bom))
-    implementation(libs.koin.core)
-    implementation(libs.koin.android)
-    implementation(libs.koin.compat)
-    implementation(libs.koin.workmanager)
-    implementation(libs.koin.navigation)
-    implementation(libs.koin.coroutines)
+    // firebase
+    api(platform(libs.firebase.bom))
+    api(libs.firebase.auth)
 
 
-    // modules
-    implementation(project(path = ":feature:main"))
-    implementation(project(path = ":feature:authentication"))
-    implementation(project(path = ":data"))
-    implementation(project(path = ":core"))
+    implementation (libs.androidx.material.icons.extended)
 
 }

@@ -21,4 +21,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "Hexagonal_Arch"
 include(":app")
- 
+include(":core")
+include(":data")
+include(":feature")
+include(":common")
+include(":feature:authentication")
+include(":feature:main")

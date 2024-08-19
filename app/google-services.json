@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1557376973",
+    "project_id": "hexagonal-arch",
+    "storage_bucket": "hexagonal-arch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1557376973:android:54f7ab267075251ad19e84",
+        "android_client_info": {
+          "package_name": "com.base.hexagonal_arch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKi_gmFhCND6IpBWNDZF_Snz92Zf2HgZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
