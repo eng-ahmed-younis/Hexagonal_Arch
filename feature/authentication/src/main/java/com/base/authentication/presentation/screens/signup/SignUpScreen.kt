@@ -1,4 +1,4 @@
-package com.base.authentication.presentation.screens.login
+package com.base.authentication.presentation.screens.signup
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,7 +16,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,27 +33,30 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.base.authentication.presentation.components.LoadingScreen
+import com.base.authentication.presentation.screens.login.LoginIntents
 import kotlinx.coroutines.launch
 
 @Composable
-fun LogInScreen(
-    state: LoginState,
-    sendEvent: (LoginIntents) -> Unit
+fun SignUpScreen(
+    state: SignUpState,
+    sendEvent : (SignUpIntents) -> Unit
 ) {
+
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    val name by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
 
-    val iconVisibility = when(passwordVisible){
-        true ->{
+    val iconVisibility = when (passwordVisible) {
+        true -> {
             Icons.Rounded.Visibility
         }
-        false ->{
+
+        false -> {
             Icons.Rounded.VisibilityOff
         }
     }
-
     when{
         state.error != null ->{
             Text(text = state.error)
@@ -63,21 +65,18 @@ fun LogInScreen(
             LoadingScreen()
         }
         state.data != null ->{
-            // navigate to home screen
+            // navigate to login screen
         }
     }
 
-
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Text(
-            text = "Log In",
+            text = "Sign Up",
             modifier = Modifier
                 .padding(16.dp),
             style = TextStyle(
@@ -87,6 +86,16 @@ fun LogInScreen(
             )
         )
         Spacer(modifier = Modifier.padding(10.dp))
+        OutlinedTextField(
+            value = name,
+            onValueChange = { email = it },
+            label = { Text("Name") },
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Email
+            ),
+        )
+        Spacer(modifier = Modifier.padding(5.dp))
+
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
@@ -110,7 +119,7 @@ fun LogInScreen(
                 // Password visibility toggle
                 IconButton(
                     onClick = {
-                    /* Handle password visibility toggle */
+                        /* Handle password visibility toggle */
                         // Please provide localized description for accessibility services
                         val description = if (passwordVisible) "Hide password" else "Show password"
                         passwordVisible = !passwordVisible
@@ -122,14 +131,15 @@ fun LogInScreen(
                     )
                 }
             },
-
         )
+
+
         Spacer(modifier = Modifier.padding(30.dp))
 
         Button(
             onClick = {
                 scope.launch {
-                    sendEvent(LoginIntents.LoginUser(email, password))
+                    sendEvent(SignUpIntents.SignUpUser(email, password))
                 }
             },
             modifier = Modifier
@@ -137,8 +147,9 @@ fun LogInScreen(
                 .padding(16.dp)
 
         ) {
-            Text("Log In")
+            Text("Sign Up")
         }
+
 
     }
 }
@@ -146,9 +157,9 @@ fun LogInScreen(
 
 @Composable
 @Preview(showSystemUi = true, showBackground = true, device = "id:pixel_8_pro")
-fun LogInScreenPreview(){
-    LogInScreen(
-        state = LoginState(),
+fun SignUpScreenPreview() {
+    SignUpScreen(
+        state = SignUpState(),
         sendEvent = {}
     )
 }

@@ -58,6 +58,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    //coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
 
     // koin di
     implementation(platform(libs.koin.bom))
@@ -74,5 +78,6 @@ dependencies {
     implementation(project(path = ":feature:authentication"))
     implementation(project(path = ":data"))
     implementation(project(path = ":core"))
+    implementation(project(path = ":common"))
 
 }

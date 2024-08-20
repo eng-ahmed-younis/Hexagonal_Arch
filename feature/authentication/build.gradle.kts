@@ -42,6 +42,7 @@ android {
 
 dependencies {
 
+    implementation(project(path = ":common"))
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -62,8 +63,13 @@ dependencies {
     // firebase
     api(platform(libs.firebase.bom))
     api(libs.firebase.auth)
-
+    // view model
+    implementation (libs.androidx.lifecycle.viewmodel.compose)
 
     implementation (libs.androidx.material.icons.extended)
+
+
+
+
 
 }

@@ -1,15 +1,16 @@
 package com.base.authentication.domain.repository
 
+import com.base.authentication.data.model.AuthResult
 import com.google.firebase.auth.FirebaseUser
 
 interface AuthRepository {
-    suspend fun loginWithEmailPassword(email: String, password: String): FirebaseUser?
+    suspend fun loginWithEmailPassword(email: String, password: String): AuthResult
 
-    suspend fun registerWithEmailPassword(email: String, password: String): FirebaseUser?
+    suspend fun registerWithEmailPassword(email: String, password: String): AuthResult
 
-    fun signOut(): FirebaseUser?
+    suspend fun signOut(): AuthResult
 
-    fun getCurrentUser(): FirebaseUser?
+    suspend fun getCurrentUser(): AuthResult
 
     suspend fun sendResetPassword(email: String): Boolean
 }
