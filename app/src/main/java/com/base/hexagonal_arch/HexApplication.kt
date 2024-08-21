@@ -2,6 +2,7 @@ package com.base.hexagonal_arch
 
 import android.app.Application
 import com.base.hexagonal_arch.di.appModule
+import com.base.hexagonal_arch.di.appNavigation
 import com.base.hexagonal_arch.di.repositoryModule
 import com.base.hexagonal_arch.di.useCasesModule
 import com.base.hexagonal_arch.di.viewModelModule
@@ -32,7 +33,8 @@ class HexApplication : Application() {
                 appModule,
                 viewModelModule,
                 useCasesModule,
-                repositoryModule
+                repositoryModule,
+                appNavigation
             )
         }
     }

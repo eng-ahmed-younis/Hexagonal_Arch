@@ -58,6 +58,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // navigation
+    implementation(libs.compose.navigation)
+
+
     //coroutines
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
@@ -67,6 +71,10 @@ dependencies {
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.core)
     implementation(libs.koin.android)
+    implementation (libs.insert.koin.koin.android)
+    implementation(libs.koin.androidx.viewmodel)
+    implementation(libs.koin.androidx.compose)
+
     implementation(libs.koin.compat)
     implementation(libs.koin.workmanager)
     implementation(libs.koin.navigation)

@@ -44,8 +44,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.compose.navigation)
 
-    implementation(libs.koin.navigation)
 
     //coroutines
     implementation(libs.kotlinx.coroutines.core)

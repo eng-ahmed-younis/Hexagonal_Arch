@@ -8,6 +8,7 @@ import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.lazyModule
 
 val viewModelModule = lazyModule {
-    viewModel { LogInViewModel(get()) }
-    viewModel { SignUpViewModel(get()) }
+    viewModel { SignUpViewModel(get(), get()) }
+    viewModel { LogInViewModel(get(), get()) }
+
 }

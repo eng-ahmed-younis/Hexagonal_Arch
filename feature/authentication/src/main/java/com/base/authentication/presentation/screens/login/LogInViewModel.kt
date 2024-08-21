@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
+
 class LogInViewModel(
     private val logInUseCase: LogInUseCase,
     private val navigator: NavigationService

@@ -2,6 +2,7 @@ package com.base.hexagonal_arch.navigation
 
 import androidx.navigation.NavOptionsBuilder
 import com.base.common.navigation.NavigationService
+import com.base.hexagonal_arch.navigation.utils.DestinationRoute
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
